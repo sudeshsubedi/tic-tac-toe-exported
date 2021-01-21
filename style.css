@@ -5,7 +5,7 @@
 
 #canvasContainer {
     width:100%; 
-    height:100vh; 
+    height:70vh; 
     position:relative;
 }
 
@@ -14,4 +14,14 @@
     background-color: aquamarine; 
     top:0;bottom:0;right:0;left:0; 
     margin:auto; 
+}
+
+#buttonContainer {
+    text-align: center;
+}
+
+#restartButton {
+    height: 25px;
+    width: 100px;
+    background-color: blueviolet;
 }

@@ -225,3 +225,7 @@ cvs.addEventListener('mousedown', (e) => {
         }
     }
 })
+
+function restartGame(){
+    location.reload()
+}
