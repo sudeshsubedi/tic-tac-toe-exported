@@ -125,7 +125,7 @@ const turns = {
     MINMAX: 1
 }
 var state = states.PLAYING
-var turn = turns.PLAYER
+var turn = turns.MINMAX
 var game_finished = false
 
 var board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
@@ -198,8 +198,18 @@ function checkWinner(board){
     }
     return false
 }
-setupBoard()
 
+function startGame(){
+    let minimax_cell = best_move(board)
+    drawCircle(cvs, minimax_cell[0], minimax_cell[1])
+    board[minimax_cell[0]][minimax_cell[1]] = 1
+    turn = turns.PLAYER
+    game_finished = checkWinner(board)
+    if(game_finished){ return }
+}
+
+setupBoard()
+startGame()
 
 
 
@@ -214,7 +224,8 @@ cvs.addEventListener('mousedown', (e) => {
                 board[cellId[0]][cellId[1]] = -1
                 turn = turns.MINMAX           
                 game_finished = checkWinner(board)
-                if(game_finished){ return }
+                if(game_finished){ return }      
+                
                 let minimax_cell = best_move(board)
                 drawCircle(cvs, minimax_cell[0], minimax_cell[1])
                 board[minimax_cell[0]][minimax_cell[1]] = 1
